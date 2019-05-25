@@ -1,7 +1,7 @@
 FROM coqorg/base:latest
 LABEL maintainer="erik@martin-dorel.org"
 
-ENV COQ_VERSION="8.9.0"
+ENV COQ_VERSION="8.9.1"
 ENV COQ_EXTRA_OPAM="coq-bignums"
 
 # Build coq with both min-version and edge+flambda opam switches
