@@ -1,5 +1,5 @@
 FROM debian:10-slim
-LABEL maintainer="erik@martin-dorel.org"
+LABEL maintainer="steven.keuchel@gmail.com"
 
 ENV OPAM_VERSION="2.0.6"
 
@@ -50,30 +50,18 @@ RUN groupadd -g ${guest_gid} coq \
   && mkdir -p -v /home/coq/bin /home/coq/.local/bin \
   && chown coq:coq /home/coq/bin /home/coq/.local /home/coq/.local/bin
 
-# Load travis.sh at login
-COPY travis.sh /etc/profile.d/
-
 WORKDIR /home/coq
 
 USER coq
 
-ENV NJOBS="2"
-ENV COMPILER="4.05.0"
-ENV COMPILER_EDGE="4.07.1+flambda"
+ENV COMPILER="4.08.1"
 
 RUN ["/bin/bash", "--login", "-c", "set -x \
-  && opam init --auto-setup --yes --jobs=${NJOBS} --compiler=${COMPILER_EDGE} --disable-sandboxing \
+  && opam init --auto-setup --yes --compiler=${COMPILER} --disable-sandboxing \
   && eval $(opam env) \
   && opam repository add --all-switches --set-default coq-released https://coq.inria.fr/opam/released \
   && opam update -y \
-  && opam install -y -j 1 opam-depext \
-  && opam clean -a -c -s --logs \
-  && opam config list && opam list"]
-
-RUN ["/bin/bash", "--login", "-c", "set -x \
-  && opam switch create -y ${COMPILER} \
-  && eval $(opam env) \
-  && opam install -y -j 1 opam-depext \
+  && opam install -y opam-depext \
   && opam clean -a -c -s --logs \
   && opam config list && opam list"]
 
