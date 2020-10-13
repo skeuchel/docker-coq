@@ -12,5 +12,6 @@ RUN ["/bin/bash", "--login", "-c", "set -x \
   && opam update -y -u \
   && opam pin add -n -k version coq ${COQ_VERSION} \
   && opam install -y -v coq ${COQ_EXTRA_OPAM} \
+  && opam install -y -v coq-bbv --ignore-constraints-on coq \
   && opam clean -a -c -s --logs \
   && opam config list && opam list"]
