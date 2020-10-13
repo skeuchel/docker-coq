@@ -2,7 +2,7 @@ FROM skeuchel/coq:base
 LABEL maintainer="steven.keuchel@gmail.com"
 
 ENV COQ_VERSION="8.11.2"
-ENV COQ_EXTRA_OPAM="coq-bignums coq-equations coq-hierarchy-builder coq-iris"
+ENV COQ_EXTRA_OPAM="coq-bignums coq-equations coq-hierarchy-builder coq-iris coq-bbv"
 
 # Build coq with both min-version and edge+flambda opam switches
 
