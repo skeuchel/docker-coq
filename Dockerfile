@@ -1,7 +1,7 @@
 FROM debian:10-slim
 LABEL maintainer="steven.keuchel@gmail.com"
 
-ENV OPAM_VERSION="2.0.6"
+ENV OPAM_VERSION="2.0.7"
 
 RUN apt-get update -y -q \
   && DEBIAN_FRONTEND=noninteractive apt-get install -y -q --no-install-recommends \
@@ -60,6 +60,7 @@ RUN ["/bin/bash", "--login", "-c", "set -x \
   && opam init --auto-setup --yes --compiler=${COMPILER} --disable-sandboxing \
   && eval $(opam env) \
   && opam repository add --all-switches --set-default coq-released https://coq.inria.fr/opam/released \
+  && opam repository add --all-switches coq-extra-dev https://coq.inria.fr/opam/extra-dev \
   && opam update -y \
   && opam install -y opam-depext \
   && opam clean -a -c -s --logs \
