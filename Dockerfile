@@ -60,7 +60,6 @@ RUN ["/bin/bash", "--login", "-c", "set -x \
   && opam init --auto-setup --yes --compiler=${COMPILER} --disable-sandboxing \
   && eval $(opam env) \
   && opam repository add --all-switches --set-default coq-released https://coq.inria.fr/opam/released \
-  && opam repository add --all-switches coq-extra-dev https://coq.inria.fr/opam/extra-dev \
   && opam update -y \
   && opam install -y opam-depext \
   && opam clean -a -c -s --logs \
