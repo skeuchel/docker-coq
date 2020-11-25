@@ -1,7 +1,7 @@
 FROM skeuchel/coq:base
 LABEL maintainer="steven.keuchel@gmail.com"
 
-ENV COQ_VERSION="8.12.0"
+ENV COQ_VERSION="8.12.1"
 ENV COQ_EXTRA_OPAM="coq-bignums coq-equations coq-hierarchy-builder coq-iris"
 
 RUN ["/bin/bash", "--login", "-c", "set -x \
