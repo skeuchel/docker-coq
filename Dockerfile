@@ -54,7 +54,7 @@ WORKDIR /home/coq
 
 USER coq
 
-ENV COMPILER="4.08.1"
+ENV COMPILER="4.07.1+flambda"
 
 RUN ["/bin/bash", "--login", "-c", "set -x \
   && opam init --auto-setup --yes --compiler=${COMPILER} --disable-sandboxing \
