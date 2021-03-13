@@ -1,7 +1,7 @@
 FROM debian:10-slim
 LABEL maintainer="steven.keuchel@gmail.com"
 
-ENV OPAM_VERSION="2.0.7"
+ENV OPAM_VERSION="2.0.8"
 
 RUN apt-get update -y -q \
   && DEBIAN_FRONTEND=noninteractive apt-get install -y -q --no-install-recommends \
